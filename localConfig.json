@@ -1,7 +1,7 @@
 {
     "proxyUrl": {
         "url": "proxy/?url=",
-        "useCORS": ["http://demo.geo-solutions.it/geoserver", "https://demo.geo-solutions.it:443/geoserver", "https://demo.geo-solutions.it/geoserver", "https://nominatim.openstreetmap.org"]
+        "useCORS": ["https://nominatim.openstreetmap.org"]
     },
     "geoStoreUrl": "rest/geostore/",
     "printUrl": "pdf/info.json",
@@ -45,24 +45,12 @@
                 "isNew": true,
                 "autoload": false
             },
-            "selectedService": "Demo CSW Service",
+            "selectedService": "GoldCorp WMS Service",
             "services": {
-              "Demo CSW Service": {
-                "url": "https://demo.geo-solutions.it/geoserver/csw",
-                "type": "csw",
-                "title": "Demo CSW Service",
-                "autoload": true
-              },
-              "Demo WMS Service": {
-                "url": "https://demo.geo-solutions.it/geoserver/wms",
+              "GoldCorp WMS Service": {
+                "url": "http://mexgisprd:8080/geoserver/wms",
                 "type": "wms",
-                "title": "Demo WMS Service",
-                "autoload": false
-              },
-              "Demo WMTS Service": {
-                "url": "https://demo.geo-solutions.it/geoserver/gwc/service/wmts",
-                "type": "wmts",
-                "title": "Demo WMTS Service",
+                "title": "GoldCorp WMS Service",
                 "autoload": false
               }
             }
