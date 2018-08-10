@@ -69,7 +69,7 @@
             },
             "fr": {
               "code": "fr-FR",
-              "description": "Franï¿½ais"
+              "description": "Français"
             },
             "de": {
               "code": "de-DE",
@@ -77,7 +77,7 @@
             },
             "es": {
               "code": "es-ES",
-              "description": "Espaï¿½ol"
+              "description": "Español"
             }
           }
         }
@@ -345,7 +345,8 @@
                 "declineUrl" : "http://www.google.com"
                 }
             },
-            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig"
+            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets",
+            "FloatingLegend"
         ],
         "embedded": [{
                 "name": "Map",
@@ -448,28 +449,24 @@
                 }
             }, "Cookie",
             "OmniBar", {
-            "name": "GoFull",
-            "cfg": {
-                "urlReplaceString": "$1#/viewer/openlayers/$2"
-            },
-            "override": {
-                "Toolbar": {
-                    "alwaysVisible": true
+                "name": "GoFull",
+		"cfg": {
+            		"urlReplaceString": "$1#/viewer/openlayers/$2"
+          	},
+                "override": {
+                    "Toolbar": {
+                        "alwaysVisible": true
+                    }
                 }
             }
-        }],
+        ],
         "common": [{
             "name": "OmniBar",
             "cfg": {
                 "className": "navbar shadow navbar-home"
             }
         }, "ManagerMenu", "Login","Language", "NavMenu", "Attribution", "ScrollTop", "Notifications"],
-        "maps": ["HomeDescription", "MapSearch", {
-        "name": "CreateNewMap",
-        "cfg": {
-          "showNewDashboard": false
-        }
-      	}, "FeaturedMaps",
+        "maps": ["HomeDescription", "MapSearch", "CreateNewMap", "FeaturedMaps", "ContentTabs",
 
           {
             "name": "Maps",
@@ -477,7 +474,17 @@
               "mapsOptions": {
                 "start": 0,
                 "limit": 12
-              }
+              },
+              "fluid": true
+            }
+          }, {
+            "name": "Dashboards",
+            "cfg": {
+              "mapsOptions": {
+                "start": 0,
+                "limit": 12
+              },
+              "fluid": true
             }
           }, "Footer", {
           "name": "Cookie",
@@ -486,7 +493,40 @@
             "declineUrl" : "http://www.google.com"
           }
         }],
-        "dashboard": ["Redirect"],
+        "dashboard": [{
+            "name": "OmniBar",
+            "cfg": {
+                "containerPosition": "header",
+                "className": "navbar shadow navbar-home"
+            }
+        }, "Login", "Language", "NavMenu", "Attribution", "Home", {
+          "name": "DashboardEditor",
+          "cfg": {
+             "catalog": {
+               "url": "http://mexgisprd:8080/geoserver/wms",
+               "type": "wms",
+               "title": "GoldCorp WMS Service",
+               "autoload": false
+             },
+            "containerPosition": "columns"
+          }
+        }, {
+          "name": "QueryPanel",
+          "cfg": {
+            "toolsOptions": {
+              "hideCrossLayer": true,
+              "hideSpatialFilter": true
+            },
+            "containerPosition": "columns"
+          }
+        }, "BurgerMenu", "Dashboard", "Notifications", {
+            "name": "Tutorial",
+            "cfg": {
+                "allowClicksThruHole": false,
+                "containerPosition": "header",
+                "preset": "dashboard_tutorial"
+            }
+        }],
         "manager": ["Header", "Redirect", "Manager", "Home", "UserManager", "GroupManager", "Footer"]
     }
 }
