@@ -26,6 +26,10 @@
     "authenticationRules": [{
         "urlPattern": ".*geostore.*",
         "method": "bearer"
+    }, {
+		"urlPattern": "\\/geoserver/.*",
+		"authkeyParamName": "authkey",
+		"method": "authkey"
     }],
     "monitorState": [
       {"name": "routing", "path": "routing.location.pathname"},
@@ -457,7 +461,8 @@
                     "alwaysVisible": true
                 }
             }
-        }],
+            }
+        ],
         "common": [{
             "name": "OmniBar",
             "cfg": {
