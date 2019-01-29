@@ -5,6 +5,7 @@
     },
     "geoStoreUrl": "rest/geostore/",
     "printUrl": "pdf/info.json",
+    "themePrefix": "MapStore2-c126",
     "bingApiKey": "AhuXBu7ipR1gNbBfXhtUAyCZ6rkC5PkWpxs2MnMRZ1ZupxQfivjLCch22ozKSCAn",
     "mapquestApiKey": "__API_KEY_MAPQUEST__",
     "initialMapFilter": "",
@@ -212,7 +213,7 @@
                 }
               }
             }
-          }, "AutoMapUpdate", "HelpLink", "Share", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
+          }, "AutoMapUpdate", "Share", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
             {
                 "name": "Identify",
                 "cfg": {
@@ -275,7 +276,7 @@
             "TOCItemsSettings",
             "Tutorial", "MapFooter", {
                 "name": "Measure"
-            }, "Print", "ShapeFile", {
+            }, "ShapeFile", {
                 "name": "Settings",
                 "cfg": {
                     "wrap": true
@@ -344,8 +345,7 @@
                 "declineUrl" : "http://www.google.com"
                 }
             },
-            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets",
-            "FloatingLegend"
+            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig"
         ],
         "embedded": [{
                 "name": "Map",
@@ -448,21 +448,28 @@
                 }
             }, "Cookie",
             "OmniBar", {
-                "name": "GoFull",
-                "override": {
-                    "Toolbar": {
-                        "alwaysVisible": true
-                    }
+            "name": "GoFull",
+            "cfg": {
+                "urlReplaceString": "$1#/viewer/openlayers/$2"
+            },
+            "override": {
+                "Toolbar": {
+                    "alwaysVisible": true
                 }
             }
-        ],
+        }],
         "common": [{
             "name": "OmniBar",
             "cfg": {
                 "className": "navbar shadow navbar-home"
             }
         }, "ManagerMenu", "Login","Language", "NavMenu", "Attribution", "ScrollTop", "Notifications"],
-        "maps": ["HomeDescription", "MapSearch", "CreateNewMap", "FeaturedMaps", "ContentTabs",
+        "maps": ["HomeDescription", "MapSearch", {
+        "name": "CreateNewMap",
+        "cfg": {
+          "showNewDashboard": false
+        }
+      	}, "FeaturedMaps",
 
           {
             "name": "Maps",
@@ -470,17 +477,7 @@
               "mapsOptions": {
                 "start": 0,
                 "limit": 12
-              },
-              "fluid": true
-            }
-          }, {
-            "name": "Dashboards",
-            "cfg": {
-              "mapsOptions": {
-                "start": 0,
-                "limit": 12
-              },
-              "fluid": true
+              }
             }
           }, "Footer", {
           "name": "Cookie",
@@ -489,40 +486,7 @@
             "declineUrl" : "http://www.google.com"
           }
         }],
-        "dashboard": [{
-            "name": "OmniBar",
-            "cfg": {
-                "containerPosition": "header",
-                "className": "navbar shadow navbar-home"
-            }
-        }, "Login", "Language", "NavMenu", "Attribution", "Home", {
-          "name": "DashboardEditor",
-          "cfg": {
-             "catalog": {
-               "url": "https://demo.geo-solutions.it/geoserver/wms",
-               "type": "wms",
-               "title": "Demo WMS Service",
-               "autoload": false
-             },
-            "containerPosition": "columns"
-          }
-        }, {
-          "name": "QueryPanel",
-          "cfg": {
-            "toolsOptions": {
-              "hideCrossLayer": true,
-              "hideSpatialFilter": true
-            },
-            "containerPosition": "columns"
-          }
-        }, "BurgerMenu", "Dashboard", "Notifications", {
-            "name": "Tutorial",
-            "cfg": {
-                "allowClicksThruHole": false,
-                "containerPosition": "header",
-                "preset": "dashboard_tutorial"
-            }
-        }],
+        "dashboard": ["Redirect"],
         "manager": ["Header", "Redirect", "Manager", "Home", "UserManager", "GroupManager", "Footer"]
     }
 }
