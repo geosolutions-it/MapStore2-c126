@@ -5,6 +5,7 @@
     },
     "geoStoreUrl": "rest/geostore/",
     "printUrl": "pdf/info.json",
+    "translationsPath": "./MapStore2/web/client/translations",
     "themePrefix": "MapStore2-c126",
     "bingApiKey": "AhuXBu7ipR1gNbBfXhtUAyCZ6rkC5PkWpxs2MnMRZ1ZupxQfivjLCch22ozKSCAn",
     "mapquestApiKey": "__API_KEY_MAPQUEST__",
@@ -17,9 +18,7 @@
           "flyTo": true,
           "navigationTools": true,
           "terrainProvider": {
-              "type": "cesium",
-              "url": "https://assets.agi.com/stk-terrain/world",
-              "requestVertexNormals": true
+            "type": "ellipsoid"
           }
       }
     },
@@ -189,7 +188,8 @@
                 "externalCookieUrl" : "",
                 "declineUrl" : "http://www.google.com"
               }
-            }
+            },
+            "FeedbackMask"
         ],
         "desktop": [ "Details",
           {
@@ -217,7 +217,7 @@
                 }
               }
             }
-          }, "AutoMapUpdate", "Share", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
+          }, "AutoMapUpdate", {"name": "Share", "cfg": {"showAPI": false}}, "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
             {
                 "name": "Identify",
                 "cfg": {
@@ -280,7 +280,7 @@
             "TOCItemsSettings",
             "Tutorial", "MapFooter", {
                 "name": "Measure"
-            }, "ShapeFile", {
+            }, "Print", "ShapeFile", {
                 "name": "Settings",
                 "cfg": {
                     "wrap": true
@@ -349,7 +349,26 @@
                 "declineUrl" : "http://www.google.com"
                 }
             },
-            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "SearchServicesConfig"
+            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "SearchServicesConfig", "WidgetsBuilder", "Widgets",
+            "FeedbackMask",
+            {
+              "name": "StyleEditor",
+              "cfg": {
+                "styleService": {
+                  "baseUrl": "http://mexgisprd:8080/geoserver/",
+                  "formats": [
+                    "css",
+                    "sld"
+                  ],
+                  "availableUrls": [
+                    "http://mexgisprd:8080/geoserver/"
+                  ]
+                },
+                "editingAllowedRoles": [
+                    "ADMIN"
+                ]
+              }
+            }
         ],
         "embedded": [{
                 "name": "Map",
@@ -461,7 +480,8 @@
                     "alwaysVisible": true
                 }
             }
-            }
+            },
+            "FeedbackMask"
         ],
         "common": [{
             "name": "OmniBar",
@@ -469,12 +489,7 @@
                 "className": "navbar shadow navbar-home"
             }
         }, "ManagerMenu", "Login","Language", "NavMenu", "Attribution", "ScrollTop", "Notifications"],
-        "maps": ["HomeDescription", "MapSearch", {
-        "name": "CreateNewMap",
-        "cfg": {
-          "showNewDashboard": false
-        }
-      	}, "FeaturedMaps",
+        "maps": ["HomeDescription", "MapSearch", "CreateNewMap", "FeaturedMaps", "ContentTabs",
 
           {
             "name": "Maps",
@@ -482,7 +497,17 @@
               "mapsOptions": {
                 "start": 0,
                 "limit": 12
-              }
+              },
+              "fluid": true
+            }
+          }, {
+            "name": "Dashboards",
+            "cfg": {
+              "mapsOptions": {
+                "start": 0,
+                "limit": 12
+              },
+              "fluid": true
             }
           }, "Footer", {
           "name": "Cookie",
@@ -491,7 +516,46 @@
             "declineUrl" : "http://www.google.com"
           }
         }],
-        "dashboard": ["Redirect"],
+        "dashboard": [{
+          "name": "OmniBar",
+          "cfg": {
+              "containerPosition": "header",
+              "className": "navbar shadow navbar-home"
+          }
+      }, "Login", "Language", "NavMenu", "Attribution", "Home", {
+        "name": "DashboardEditor",
+        "cfg": {
+           "catalog": {
+            "url": "http://mexgisprd:8080/geoserver/wms",
+            "type": "wms",
+            "title": "GoldCorp WMS Service",
+            "autoload": true
+          },
+          "containerPosition": "columns"
+        }
+      }, {
+        "name": "QueryPanel",
+        "cfg": {
+          "toolsOptions": {
+            "hideCrossLayer": true,
+            "hideSpatialFilter": true
+          },
+          "containerPosition": "columns"
+        }
+      }, "BurgerMenu", "Dashboard", "Notifications", {
+          "name": "Tutorial",
+          "cfg": {
+              "allowClicksThruHole": false,
+              "containerPosition": "header",
+              "preset": "dashboard_tutorial"
+          }
+      },
+      {
+          "name": "FeedbackMask",
+          "cfg": {
+              "containerPosition": "header"
+          }
+      }],
         "manager": ["Header", "Redirect", "Manager", "Home", "UserManager", "GroupManager", "Footer"]
     }
 }
