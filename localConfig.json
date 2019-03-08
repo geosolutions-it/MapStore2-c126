@@ -40,6 +40,11 @@
         "maptype": {
             "mapType": "{context.mode === 'desktop' ? 'openlayers' : 'leaflet'}"
         },
+        "annotations": {
+          "config": {
+            "multiGeometry": true
+          }
+        },
         "catalog": {
           "default": {
             "newService": {
@@ -217,7 +222,7 @@
                 }
               }
             }
-          }, "AutoMapUpdate", {"name": "Share", "cfg": {"showAPI": false}}, "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
+          }, "AutoMapUpdate", "HelpLink", {"name": "Share", "cfg": {"showAPI": false}}, "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
             {
                 "name": "Identify",
                 "cfg": {
