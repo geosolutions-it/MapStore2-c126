@@ -5,7 +5,7 @@
     },
     "geoStoreUrl": "rest/geostore/",
     "printUrl": "pdf/info.json",
-    "translationsPath": "./MapStore2/web/client/translations",
+    "translationsPath": ["./MapStore2/web/client/translations", "./translations"],
     "themePrefix": "MapStore2-c126",
     "bingApiKey": "AhuXBu7ipR1gNbBfXhtUAyCZ6rkC5PkWpxs2MnMRZ1ZupxQfivjLCch22ozKSCAn",
     "mapquestApiKey": "__API_KEY_MAPQUEST__",
@@ -67,21 +67,9 @@
         },
         "locales": {
           "supportedLocales": {
-            "it": {
-              "code": "it-IT",
-              "description": "Italiano"
-            },
             "en": {
               "code": "en-US",
               "description": "English"
-            },
-            "fr": {
-              "code": "fr-FR",
-              "description": "Français"
-            },
-            "de": {
-              "code": "de-DE",
-              "description": "Deutsch"
             },
             "es": {
               "code": "es-ES",
@@ -493,9 +481,17 @@
             "cfg": {
                 "className": "navbar shadow navbar-home"
             }
-        }, "ManagerMenu", "Login","Language", "NavMenu", "Attribution", "ScrollTop", "Notifications"],
-        "maps": ["HomeDescription", "MapSearch", "CreateNewMap", "FeaturedMaps", "ContentTabs",
-
+        }, "ManagerMenu", "Login","Language", "NavMenu",
+        {
+          "name": "Attribution",
+            "cfg": {
+              "src": "assets/img/icon2.png",
+              "label": "NEWMONT GOLDCORP",
+              "href": "https://conveyor.goldcorp.com/news/Pages/default.aspx"
+            }
+        }, "ScrollTop", "Notifications"],
+        "maps": [
+          {"name": "HomeDescription", "cfg": { "name": "GeoDAS" } }, "MapSearch", "CreateNewMap", "FeaturedMaps", "ContentTabs",
           {
             "name": "Maps",
             "cfg": {
@@ -514,7 +510,26 @@
               },
               "fluid": true
             }
-          }, "Footer", {
+          }, {
+            "name": "Footer",
+            "cfg": {
+              "address": "Newmont Goldcorp |Minera Peñasquito| Carretera Mazapil Cedros KM 24 Mazapil, Zacatecas C.P. 98230| T +52 842 424 2700",
+              "socialLinks": [
+                {
+                  "src": "assets/img/iconfinder_facebook_3999035.png",
+                  "href": "https://www.facebook.com/Goldcorp"
+                },
+                {
+                  "src": "assets/img/iconfinder_twitter_3999029.png",
+                  "href": "https://twitter.com/Goldcorp_Inc"
+                },
+                {
+                  "src": "assets/img/iconfinder_linkedin_3999038.png",
+                  "href": "https://ca.linkedin.com/company/goldcorp-inc"
+                }
+              ]
+            }
+          }, {
           "name": "Cookie",
           "cfg": {
             "externalCookieUrl" : "",

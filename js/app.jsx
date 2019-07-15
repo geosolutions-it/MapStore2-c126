@@ -44,6 +44,12 @@ const appConfig = require('../MapStore2/web/client/product/appConfig');
  *
  * const plugins = require('./plugins');
  */
-const plugins = require('../MapStore2/web/client/product/plugins');
 
-require('../MapStore2/web/client/product/main')(appConfig, plugins);
+const { plugins: customPlugins, requires: customRequires } = require('./plugins');
+
+const { plugins, requires } = require('../MapStore2/web/client/product/plugins');
+
+require('../MapStore2/web/client/product/main')(appConfig, {
+    plugins: { ...plugins, ...customPlugins },
+    requires: { ...requires, ...customRequires }
+});
