@@ -19,7 +19,20 @@ class Footer extends React.Component {
 
     static defaultProps = {
         address: 'Newmont Goldcorp |Minera Peñasquito| Carretera Mazapil Cedros KM 24 Mazapil, Zacatecas C.P. 98230| T +52 842 424 2700',
-        socialLinks: []
+        socialLinks: [
+            {
+                "src": "assets/img/iconfinder_facebook_3999035.png",
+                "href": "https://www.facebook.com/Goldcorp"
+            },
+            {
+                "src": "assets/img/iconfinder_twitter_3999029.png",
+                "href": "https://twitter.com/Goldcorp_Inc"
+            },
+            {
+                "src": "assets/img/iconfinder_linkedin_3999038.png",
+                "href": "https://ca.linkedin.com/company/goldcorp-inc"
+            }
+        ]
     };
 
     render() {
@@ -38,7 +51,7 @@ class Footer extends React.Component {
                                     <a
                                         href={link.href}
                                         target={link.target || '_blank'}>
-                                        <img src={link.src}/>
+                                        <img src={link.src} />
                                     </a>
                                 </div>
                             ))}
