@@ -35,10 +35,34 @@
     }
 }
 
+/* spinner of search button in catalog needs to be white */
 #mapstore-metadata-explorer {
     .search-button.btn-primary {
         .sk-circle:before {
             background-color: @ms2-color-text-primary;
+        }
+    }
+}
+
+/* chart preveiws needs to be aligned with colors of themes */
+.mapstore-side-card {
+    .mapstore-side-preview .recharts-wrapper {
+        path {
+            fill: @ms2-color-text !important;
+        }
+        .recharts-line path, .recharts-line-dots circle {
+            fill: transparent !important;
+            stroke: @ms2-color-text !important;
+        }
+    }
+    &.selected .mapstore-side-preview .recharts-wrapper {
+        path {
+            fill: @ms2-color-text-primary !important;
+            stroke: @ms2-color-text !important;
+        }
+        .recharts-line path, .recharts-line-dots circle {
+            fill: transparent !important;
+            stroke: @ms2-color-text-primary !important;
         }
     }
 }
