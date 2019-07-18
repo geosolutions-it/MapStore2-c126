@@ -1,0 +1,8 @@
+{
+    "locale": "en-US",
+    "messages": {
+        "home": {
+            "shortDescription": "Geospatial Data Administration System - Peñasquito"
+        }
+    }
+}
