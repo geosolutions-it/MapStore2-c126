@@ -1,6 +1,6 @@
 const path = require("path");
 
-const extractThemesPlugin = require('./MapStore2/themes.js').extractThemesPlugin;
+const extractThemesPlugin = require('./MapStore2/build/themes.js').extractThemesPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const paths = {
@@ -10,7 +10,7 @@ const paths = {
     code: [path.join(__dirname, "js"), path.join(__dirname, "MapStore2", "web", "client")]
 };
 
-module.exports = require('./MapStore2/buildConfig')(
+module.exports = require('./MapStore2/build/buildConfig')(
     {
         'MapStore2-c126': path.join(__dirname, "js", "app"),
         'MapStore2-c126-embedded': path.join(__dirname, "MapStore2", "web", "client", "product", "embedded"),
@@ -45,5 +45,9 @@ module.exports = require('./MapStore2/buildConfig')(
             hash: true,
             filename: 'api.html'
         })
-    ]
+    ],
+    {
+        '@mapstore': path.resolve(__dirname, 'MapStore2/web/client'),
+        '@js': path.resolve(__dirname, 'js')
+    }
 );
