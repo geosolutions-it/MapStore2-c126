@@ -552,7 +552,13 @@
             }
         }, "ScrollTop", "Notifications"],
         "maps": [
-          {"name": "HomeDescription", "cfg": { "name": "GeoDAS" } }, "MapSearch", "CreateNewMap", "FeaturedMaps", "ContentTabs",
+          {"name": "HomeDescription", "cfg": { "name": "GeoDAS" } }, "MapSearch", {
+            "name": "CreateNewMap",
+            "cfg": {
+              "showNewGeostory": false,
+              "showNewContext": false
+            }
+          }, "FeaturedMaps", "ContentTabs",
           {
             "name": "Maps",
             "cfg": {
@@ -564,15 +570,6 @@
             }
           }, {
             "name": "Dashboards",
-            "cfg": {
-              "mapsOptions": {
-                "start": 0,
-                "limit": 12
-              },
-              "fluid": true
-            }
-          }, {
-            "name": "GeoStories",
             "cfg": {
               "mapsOptions": {
                 "start": 0,
@@ -627,74 +624,6 @@
               "containerPosition": "header"
           }
       }],
-        "geostory": [
-          {
-            "name": "OmniBar",
-            "cfg": {
-              "containerPosition": "header",
-              "className": "navbar shadow navbar-home"
-            }
-          },
-          "Login",
-          "BurgerMenu",
-          "Language",
-          "NavMenu",
-          "Attribution",
-          "Home",
-          "GeoStory",
-          "GeoStorySave",
-          "GeoStorySaveAs",
-          "MapEditor",
-          "MediaEditor",
-          {
-            "name": "GeoStoryEditor",
-            "cfg": {
-              "containerPosition": "columns"
-            }
-          },
-          {
-            "name": "GeoStoryNavigation",
-            "cfg": {
-              "containerPosition": "header"
-            }
-          },
-          "Notifications",
-          {
-            "name": "FeedbackMask",
-            "cfg": {
-              "containerPosition": "header"
-            }
-          }
-        ],
-        "context-creator": [
-          {
-            "name": "OmniBar",
-            "cfg": {
-              "containerPosition": "header",
-              "className": "navbar shadow navbar-home"
-            }
-          },
-          "Redirect",
-          "Login",
-          "Language",
-          "NavMenu",
-          "Attribution",
-          {
-            "name": "BackToPage",
-            "cfg": {
-              "destRoute": "/context-manager",
-              "confirmMessage": "contextCreator.undo"
-            }
-          },
-          "ContextCreator",
-          "Notifications",
-          {
-            "name": "FeedbackMask",
-            "cfg": {
-              "containerPosition": "header"
-            }
-          }
-        ],
         "manager": ["Header", "Redirect", "Manager", "Home", "UserManager", "GroupManager", "Footer"]
     }
 }
