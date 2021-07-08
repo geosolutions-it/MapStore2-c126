@@ -1,6 +1,6 @@
 {
   "name": "MapStore2-c126",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mapstore2 Goldcorp",
   "repository": "https://github.com/geosolutions-it/MapStore2-c126",
   "main": "index.js",
