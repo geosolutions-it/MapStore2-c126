@@ -108,9 +108,9 @@
 				class="it.geosolutions.geostore.services.rest.security.GeoStoreLdapAuthoritiesPopulator">
 				<constructor-arg ref="contextSource" />
 				<!-- groupSearchBase -->
-				<constructor-arg value="OU=Groups,OU=GIS,OU=Applications,OU=IT,OU=Mexico City,OU=Mexico,OU=Regions" />
+				<constructor-arg value="OU=Groups,OU=GIS,OU=Applications,OU=IT,OU=Penasquito,OU=Mexico,OU=Regions" />
 				<!-- roleSearchBase -->
-				<constructor-arg value="OU=Groups,OU=GIS,OU=Applications,OU=IT,OU=Mexico City,OU=Mexico,OU=Regions" />
+				<constructor-arg value="OU=Groups,OU=GIS,OU=Applications,OU=IT,OU=Penasquito,OU=Mexico,OU=Regions" />
 				<property name="groupSearchFilter" value="(member={0})" />
 				<property name="roleSearchFilter" value="(member={0})" />
 				<!-- the GeoStore convention is:
@@ -118,7 +118,7 @@
 				  * Groups starting withOUT 'ROLE_' will be threated as Groups
 				 -->
 				 <!-- This trick makes only one role to work as role to map. If you need more roles, maybe is a good idea to make rolePrefix an empty string and user roleSearchFilter -->
-				<property name="rolePrefix" value="MEX_GISADMINS_SLG" /> 
+				<property name="rolePrefix" value="PEN_GIS_" />
 				<property name="searchSubtree" value="true" />
 				<property name="convertToUpperCase" value="true" />
 
@@ -127,7 +127,8 @@
                         class="it.geosolutions.geostore.core.security.SimpleGrantedAuthoritiesMapper">
                         <constructor-arg>
                             <map>
-                                <entry key="MEX_GISADMINS_SLG" value="ROLE_ADMIN"/>
+                                <entry key="PEN_GIS_ADMIN_W_SGG" value="ROLE_ADMIN"/>
+								<entry key="PEN_GIS_HIGHLEVELADMIN01_R_SGG" value="ROLE_ADMIN"/>
                             </map>
                         </constructor-arg>
                     </bean>

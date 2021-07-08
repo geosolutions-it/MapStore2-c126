@@ -22,15 +22,15 @@ class Footer extends React.Component {
         socialLinks: [
             {
                 "src": "assets/img/iconfinder_facebook_3999035.png",
-                "href": "https://www.facebook.com/Goldcorp"
+                "href": "https://www.facebook.com/PenasquitoOficial/"
             },
             {
                 "src": "assets/img/iconfinder_twitter_3999029.png",
-                "href": "https://twitter.com/Goldcorp_Inc"
+                "href": "https://twitter.com/newmont_mexico"
             },
             {
                 "src": "assets/img/iconfinder_linkedin_3999038.png",
-                "href": "https://ca.linkedin.com/company/goldcorp-inc"
+                "href": "https://www.linkedin.com/company/newmont/"
             }
         ]
     };
