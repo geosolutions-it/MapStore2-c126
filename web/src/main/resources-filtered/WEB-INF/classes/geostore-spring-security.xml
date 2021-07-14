@@ -127,7 +127,6 @@
                         class="it.geosolutions.geostore.core.security.SimpleGrantedAuthoritiesMapper">
                         <constructor-arg>
                             <map>
-                                <entry key="PEN_GIS_ADMIN_W_SGG" value="ROLE_ADMIN"/>
 								<entry key="PEN_GIS_HIGHLEVELADMIN01_R_SGG" value="ROLE_ADMIN"/>
                             </map>
                         </constructor-arg>
